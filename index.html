@@ -1,0 +1,378 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="user-scalable=no, width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+	<style type="text/css">
+	
+		@-ms-viewport {
+				width: device-width;
+		}
+			
+		html, body {
+			margin: 0; padding: 0;
+			width: 100%;
+			height: 100%;
+			font-family: sans-serif;
+		}
+		
+		body {
+			background-color: #2ab0f9;
+			overflow: hidden;
+			-ms-touch-action: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+		
+		#defaultUnit {
+			position: absolute;
+			width: 300px;
+			height: 660px;
+			overflow: hidden;
+			background: #eee;
+		}
+		
+		#defaultUnit .logoCon {
+			position: absolute;
+			width: 300px;
+			height: 660px;
+			background-color: #fff;
+		}
+		
+		.adformLogo {
+			position: absolute;
+			top: 5%;
+			right: 5px;
+			height: 90%;
+			width: 20%;
+			background: url('assets/logo.png') no-repeat;
+			background-position: right center;
+			background-size: contain;
+		}
+		
+		.info{
+			color: #fff;
+			text-transform: uppercase;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.info li {
+			list-style-type: none;
+		}
+		
+		#defaultUnit .info {
+			position: absolute;
+			top: 20px;
+			left: 10px;
+			font-size: 10px;
+		}
+		
+		#expandUnit {
+			display: none;
+		}
+		
+		#expandUnit .logoCon {
+			position: absolute;
+			width: 100%;
+			height: 10%;
+			max-height: 50px;
+			background-color: #fff;
+			margin: 0px;
+		}
+		
+		#expandUnit .logoCon .adformLogo {
+			position: absolute;
+			left: 10px;
+			top: 5%;
+			height:90%;
+			background-position: left center;
+		}
+		
+		#expandUnit .info {
+			position: absolute;
+			top: 12%;
+			left: 5%;
+			line-height:16px;
+		}
+		
+		#expandUnit .title {
+			font-size: 16px;
+		}
+		
+		#expandUnit .text {
+			font-size: 14px;
+		}
+		
+		#wrapper{
+	position: absolute;
+	width: 970px;
+	height: 250px;
+	background:url('assets/back.png?v=2') no-repeat center;
+	cursor: pointer;
+}
+
+#carousel {
+	top: 20px;
+	list-style: none;
+	padding: 0;
+	margin:0 auto;
+	width:900px;
+	height:240px;
+	
+	opacity: 0;
+	
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-o-transition:all 0.3s;
+	transition:all 0.3s;
+	
+}
+.videoDiv {
+	width: 311px;
+	height: 175px;
+	background-color: #333;
+	text-align: center;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow:    0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+	box-shadow:         0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+	
+	-webkit-transition:-webkit-box-shadow 0.5s;
+	-moz-transition:box-shadow 0.5s;
+	transition:box-shadow 0.5s;
+}
+
+.videoDiv:hover{
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(102, 153, 0, 1);
+	-moz-box-shadow:    0px 0px 20px 0px rgba(102, 153, 0, 1);
+	box-shadow:         0px 0px 20px 0px rgba(102, 153, 0, 1);
+}
+
+.videoDiv img {
+	width: 100%;
+	height: 100%;
+}
+
+li.roundabout-in-focus {
+	cursor: default;
+}
+#preloader {
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin: -24px 0 0 -24px;
+	width:48px;
+	height:48px;
+	background: url('assets/preloader.gif') 50% 50% no-repeat;
+}
+#btn_next,
+#btn_prev {
+	position: absolute;
+	top:0;
+	width:40px;
+	height:100%;
+	cursor:pointer;
+	text-indent:-999em;
+	margin:0;
+	z-index: 1000;
+}
+#btn_prev,
+#btn_prev span {
+	left:0;
+}
+#btn_next,
+#btn_next span {
+	right:0;
+}
+#btn_next span,
+#btn_prev span {
+	width:40px;
+	height:70px;
+	display:block;
+	position:absolute;
+	top:140px;
+	margin-top:-35px;
+}
+#btn_prev:hover span,
+#btn_next:hover span {
+	opacity:0.3;
+	background-color:#000000;
+	-webkit-box-shadow:  1px 1px 5px 1px rgba(0, 0, 0, 0.8);
+	box-shadow:  1px 1px 5px 1px rgba(0, 0, 0, 0.8);
+}
+#btn_prev span {
+	background-image:url("assets/arrow_left.png");
+	background-repeat:no-repeat;
+	background-position:7px 50%;
+	border-top-right-radius:25px;
+	border-bottom-right-radius:25px;
+}
+#btn_next span {
+	background-image:url("assets/arrow_right.png");
+	background-repeat:no-repeat;
+	background-position:14px 50%;
+	border-top-left-radius:25px;
+	border-bottom-left-radius:25px;
+}
+			
+.video-container {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 225px;
+	background: #000;
+	-webkit-box-shadow:  1px 1px 5px 1px rgba(0, 0, 0, 0.8);
+	box-shadow:  1px 1px 5px 1px rgba(0, 0, 0, 0.8);
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.adform-video-play-pause,
+.adform-video-stop,
+.adform-video-rewind,
+.adform-video-full-screen,
+.adform-video-seek-bar,
+.adform-video-sound{
+	opacity: 0;
+	z-index: 100;
+	
+transition: opacity 0.5s;
+-webkit-transition: opacity 0.5s;
+-moz-transition: opacity 0.5s;
+}
+
+
+.video-container:hover .adform-video-play-pause,
+.video-container:hover .adform-video-stop,
+.video-container:hover .adform-video-rewind,
+.video-container:hover .adform-video-full-screen,
+.video-container:hover .adform-video-seek-bar,
+.video-container:hover .adform-video-sound{
+	opacity: 1;
+}
+
+.video-container video,
+.video-container .adform-video-poster {
+	width: 100%;
+	height: 100%;
+}
+
+.adform-video-big-play
+ {
+	display: none !important;
+}
+
+#trailerPlayer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.6);
+	visibility: hidden;
+}
+
+#trailerPlayerVideo {
+	position: absolute;
+	top: 15px;
+	left: 54%;
+	margin: 0 0 0 -240px;
+
+}
+
+#close {
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	z-index: 1100;
+}
+
+#logo {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	z-index: 1100;
+	height: 40px;
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	-o-transition:all 0.3s;
+	transition:all 0.3s;
+}
+
+.fullscreen-button-hack .adform-video-tablet .adform-video-full-screen {
+	display: block;
+}
+
+.fullscreen-button-hack .adform-video-tablet .adform-video-seek-bar {
+	right: 30px;
+}
+
+.ctp {
+	position: absolute;
+	bottom: 60px;
+	left: 50%;
+	margin: 0 0 0 -30px;
+	height: 60px;
+	width: 60px;
+	background: url(assets/playbutton.png);
+	opacity: 0;
+	-webkit-transition:opacity 0.3s;
+	-moz-transition:opacity 0.3s;
+	-o-transition:opacity 0.3s;
+	transition:opacity 0.3s;
+}
+
+.roundabout-in-focus .ctp{
+	opacity: 1;
+}
+
+#title {
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+	
+	</style>
+	<script src="mraid.js"></script>
+	</head>
+	<body>
+		<div id="defaultUnit">
+		
+		</div>
+		<div id="expandUnit">
+					<div id="wrapper">
+			<div id="preloader"></div>
+	
+			<div id="carousel">
+			<div class="videoDiv" id="v1" onclick="playTrailer(1)"><img src="covers/1.jpg"><div class="ctp"></div></div>
+			<div class="videoDiv" id="v2" onclick="playTrailer(2)"><img src="covers/2.jpg"><div class="ctp"></div></div>
+			<div class="videoDiv" id="v3" onclick="playTrailer(3)"><img src="covers/3.jpg"><div class="ctp"></div></div>
+
+			</div>
+			
+			<img id="logo" src="assets/logo.png">
+			<div id="description"></div>
+			<div id="trailerPlayer">
+					<div id="trailerPlayerVideo">
+						<div id="close"><img src="assets/close.png"></div>
+					</div>
+					
+			</div>
+		</div>	
+		</div>
+		
+		<script src="scripts/main.js"</script>
+	</body>
+</html>
